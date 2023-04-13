@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>File Editor</title>
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="d-flex flex-column justify-content-center align-items-center">File Editor</h1>
+		<div class="row">
+			<div style="width: 50%;">
+				<a class="mx-1" class="col-md-6" href="/new" class="mr-2">New file</a>
+			</div>
+			<div style="width: 50%;" class="d-flex justify-content-end">
+				<a class="btn btn-dark mx-1" href="/logout" role="button">Logout</a>
+			</div>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{range $file := .files}}
+				<tr>
+					<td>{{$file.Name}}</td>
+					<td><a href="/edit?filename={{$file.Name}}">Edit</a></td>
+					<td><a href="/delete?filename={{$file.Name}}">Delete</a></td>
+				</tr>
+				{{end}}
+			</tbody>
+		</table>
+		<div id="message" style="color: green;">{{.msg}}</div>
+		<a class="btn btn-primary" href="/createsub" role="button">生成订阅并同步</a>
+	</div>
+</body>
+</html>
