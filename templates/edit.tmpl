@@ -9,11 +9,15 @@
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
 				<h2 class="text-center">Edit File</h2>
+				<div class="form-group">
+					<div>Filename:</div>
+					<div class="mx-4">{{.filename}}</div>
+				</div>
 				<form method="POST" action="/edit">
 					<input type="hidden" name="filename" value="{{.filename}}">
 					<div class="form-group">
 						<label for="content">Content</label>
-						<textarea name="content" class="form-control" rows="10">{{.content}}</textarea>
+						<textarea id="content" name="content" class="form-control" rows="10">{{.content}}</textarea>
 					</div>
 					<button type="submit" class="btn btn-primary">Save</button>
 					<a href="/" class="btn btn-secondary">Cancel</a>
